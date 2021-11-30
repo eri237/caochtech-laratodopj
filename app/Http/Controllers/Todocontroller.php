@@ -25,6 +25,7 @@ class Todocontroller extends Controller
         $todo->content = $request->content;
         $form = $request->all();
         $todo->fill($form)->save();
+        $todo = Todo::find($request->id);
         return redirect('/');
     }
 

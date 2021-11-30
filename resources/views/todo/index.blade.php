@@ -126,7 +126,6 @@
         <div class="todo">
         <form action="{{url('/todo/create')}}" method="post" class="flex between mb-30">
         @csrf
-          <input type="hidden" name="_token" value="{{ csrf_token() }}">          
           <input type="text" class="input-add" name="content" />
           <input class="button-add" type="submit" value="追加" />
         </form>
@@ -148,8 +147,7 @@
               <td>
                 <input type="text" class="input-add" name="content" value="{{$todo->content}}">
               </td>
-              <input name="_method" type="hidden" value="update">
-              <input type="hidden" value="{{ $todo->id }}">
+              <input type="hidden" name="id" value="{{ $todo->id }}">
               <td>
                 <button class="button-update">更新</button>
               </td>
