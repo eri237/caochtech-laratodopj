@@ -16,14 +16,15 @@ class Todocontroller extends Controller
         $this->validate($request, Todo::$rules);
         $todo = new Todo();
         $todo->content = $request->content;
-        Todo::save();
+        $todo->save();
         return redirect('/');
     }
 
-    public function update(Request $request,todo $todo) {
+    public function update(Request $request) {
         $this->validate($request, Todo::$rules);
         $todo->content = $request->content;
-        $todo->save();
+        $form = $request->all();
+        $todo->fill($form)->save();
         return redirect('/');
     }
 

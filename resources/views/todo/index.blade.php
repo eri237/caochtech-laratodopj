@@ -143,24 +143,24 @@
           <tr>
             
             <td>{{$todo->created_at}}</td>
-            
-            <td>
-              <input type="text" class="input-add" name="content" value="{{$todo->content}}">
-            </td>
+
             <form action="{{ url('/todo/update', $todo) }}" method="post">
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <td>
+                <input type="text" class="input-add" name="content" value="{{$todo->content}}">
+              </td>
               <input name="_method" type="hidden" value="update">
+              <input type="hidden" value="{{ $todo->id }}">
               <td>
                 <button class="button-update">更新</button>
               </td>
             </form>
-            <td>
-              <form action="{{url('/todo/delete/', $todo->id)}}" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            
+            <form action="{{url('/todo/delete/', $todo->id)}}" method="post">
+              <td>
                 <input name="_method" type="hidden" value="DELETE">
                 <button class="button-delete">削除</button>
-              </form>
-            </td>
+              </td>
+             </form>
           </tr>
            @endforeach
           
