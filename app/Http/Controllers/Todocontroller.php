@@ -16,7 +16,7 @@ class Todocontroller extends Controller
         $this->validate($request, Todo::$rules);
         $todo = new Todo();
         $todo->content = $request->content;
-        $todo->save();
+        Todo::save();
         return redirect('/');
     }
 
