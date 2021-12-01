@@ -144,6 +144,7 @@
             <td>{{$todo->created_at}}</td>
 
             <form action="/todo/update" method="post">
+            @csrf
               <td>
                 <input type="text" class="input-add" name="content" value="{{$todo->content}}">
               </td>
@@ -153,9 +154,9 @@
               </td>
             </form>
             
-            <form action="{{url('/todo/delete', $todo->id)}}" method="post">
+            <form action="/todo/delete" method="post">
+            @csrf
               <td>
-                <input name="_method" type="hidden" value="DELETE">
                 <button class="button-delete">削除</button>
               </td>
              </form>
