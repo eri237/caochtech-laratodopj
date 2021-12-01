@@ -124,6 +124,13 @@
     <div class="card">
       <p class="title mb-15">Todo List</p>
         <div class="todo">
+        @if (count($errors) > 0)
+        <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+      </ul>
+      @endif
         <form action="{{url('/todo/create')}}" method="post" class="flex between mb-30">
         @csrf
           <input type="text" class="input-add" name="content" />
@@ -157,6 +164,7 @@
             <form action="/todo/delete" method="post">
             @csrf
               <td>
+                <input name="id" type="hidden" value="{{ $todo->id }}">
                 <button class="button-delete">削除</button>
               </td>
              </form>
