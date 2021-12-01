@@ -143,8 +143,7 @@
             
             <td>{{$todo->created_at}}</td>
 
-            <form action="{{url('/todo/update')
-            }}" method="post">
+            <form action="/todo/update" method="post">
               <td>
                 <input type="text" class="input-add" name="content" value="{{$todo->content}}">
               </td>

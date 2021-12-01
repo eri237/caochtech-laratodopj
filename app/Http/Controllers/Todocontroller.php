@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Todo;
 
-class TodoController extends Controller
+class Todocontroller extends Controller
 {
     public function index(){
         $todos = Todo::all();
@@ -23,10 +23,10 @@ class TodoController extends Controller
     public function update(Request $request) {
         $this->validate($request, Todo::$rules);
         $todo = Todo::find($request->id);
-        $todo->content = $request->content;
         $form = $request->all();
+        unset($form['_token_']);
         $todo->fill($form)->save();
-        return redirect()->route('todo.index');
+        return redirect('/');
     }
 
     public function delete(Request $request) {
