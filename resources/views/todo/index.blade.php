@@ -143,7 +143,8 @@
             
             <td>{{$todo->created_at}}</td>
 
-            <form action="{{ url('/todo/update', $todo) }}" method="post">
+            <form action="{{url('/todo/update')
+            }}" method="post">
               <td>
                 <input type="text" class="input-add" name="content" value="{{$todo->content}}">
               </td>
@@ -153,7 +154,7 @@
               </td>
             </form>
             
-            <form action="{{url('/todo/delete/', $todo->id)}}" method="post">
+            <form action="{{url('/todo/delete', $todo->id)}}" method="post">
               <td>
                 <input name="_method" type="hidden" value="DELETE">
                 <button class="button-delete">削除</button>
